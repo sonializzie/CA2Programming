@@ -7,14 +7,20 @@ package ca2programming;
 /**
  *
  * @author sonia_ndonga
+ * 
+ * Module: Object Orientated Programming: CA2
+ * Date: 1st March 2024
+ * 
+ * 
+ * 
+ * 
  */
 public class CA2Programming {
+    // Beginning of class method
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
-    }
+        // Beginning of main method
+        
+    } // End of class method
     
-}
+} // End of class method
