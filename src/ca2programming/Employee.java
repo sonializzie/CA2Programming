@@ -4,6 +4,9 @@
  */
 package ca2programming;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author sonia_ndonga
@@ -27,10 +30,17 @@ public class Employee {
     }
 
     // Created a constructor with parameters for Employee 
-    //Part 1 (a) for Employee constructor before Challenge ***
+    //Challenge part section : Checking valid email address
     public Employee(String name, String email) {
         this.name = name;
-        this.email = email.length() > 3 ? email : "default@gmail.com";
+//        this.email = email.length() > 3 ? email : "default@gmail.com";
+        if (isValidEmail(email)) {
+            this.email = email;
+        } else {
+            System.out.println("Invalid email format. Using a default email.");
+            this.email = "default@gmail.com";
+        }
+
         this.empNum = nextEmpNum++;
     }
 
@@ -51,12 +61,13 @@ public class Employee {
     }
 
     // Setter method for setEmail(email) with validation
-    // Value is not accepted if the length is 3 or less.
+    // Value is not accepted if email is not valid
+    // Challenge part section : Checking valid email address
     public void setEmail(String email) {
-        if (email.length() > 3) {
+        if (isValidEmail(email)) {
             this.email = email;
         } else {
-            System.out.println("Invalid email. It must be longer thans 3 characters");
+            System.out.println("Invalid email. Email not supported");
         }
 
     }
@@ -79,6 +90,22 @@ public class Employee {
     // Settter method for setNextEmpNum with the current value of nextEmpNum
     public static void setNextEmpNum(int nextEmpNum) {
         Employee.nextEmpNum = nextEmpNum;
+    }
+
+    // Method for validating email format 
+    private boolean isValidEmail(String email) {
+
+        // Expression for a common email format
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+
+        // Compiling the regualar expression 
+        Pattern pattern = Pattern.compile(emailRegex);
+
+        // Created a matcher object
+        Matcher matcher = pattern.matcher(email);
+
+        // Check to see if the email matches the pattern
+        return matcher.matches();
     }
 
 } // End class for Employee 
