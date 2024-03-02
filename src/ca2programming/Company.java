@@ -83,7 +83,7 @@ public class Company {
         while (iterator.hasNext()) {
             Employee employee = iterator.next();
 
-            if (employee.getEmpNum() >= empNumToRemove) {
+            if (employee.getEmpNum() == empNumToRemove) {
                 iterator.remove();
                 staffSet.remove(empNumToRemove); // Remove from HashSet
                 System.out.println("Employee has been removed successfully.");
