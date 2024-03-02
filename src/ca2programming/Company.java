@@ -53,7 +53,7 @@ public class Company {
         }
     }
     
-    
+    // Challenge Section Code to removeStaff by the manager
     // Method to remove an employee from the staff ArrayList based on the empNum
     public void removeStaff(int empNumToRemove){
         Iterator<Employee> iterator = staff.iterator();
