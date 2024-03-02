@@ -11,10 +11,11 @@ package ca2programming;
 public class Manager extends Employee {
     // Beginning class for Manager
 
+    // Create a class attribute for Manager
     private String username;
     private String password;
 
-    // Create a class attribute for Manager
+    // Created a Manager constructor with default value
     public Manager() {
         super(); // Calling the default of the superclass 
         this.username = "Gnomeo";
