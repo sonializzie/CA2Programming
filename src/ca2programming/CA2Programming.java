@@ -71,6 +71,7 @@ public class CA2Programming {
                         // View Current Staff if when the new staff is created
                         System.out.println("\nCurrent staff:");
                         businessGnómesLtd.listEmployee(0); // Display all employeea
+                        businessGnómesLtd.viewStaff(); // View Staff
 
                         break;
 
