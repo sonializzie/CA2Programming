@@ -5,6 +5,7 @@
 package ca2programming;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 
 /**
@@ -17,22 +18,33 @@ public class Company {
     // Created a class attribute for Company 
     private String companyName;
     private ArrayList<Employee> staff;
+    //Bonus Challenge : HashSet to prevent duplicate empNum
+    private HashSet<Integer> staffSet;
 
     // Created a Company default constructor
     public Company() {
         this.companyName = "Default Company";
         this.staff = new ArrayList<>();
+        this.staffSet = new HashSet<>(); // Bonus Challenge : HashSet
     }
 
     // Created a Company constructor that is overloaded
     public Company(String companyName) {
         this.companyName = companyName;
         this.staff = new ArrayList<>();
+        this.staffSet = new HashSet<>(); // Bonus Challenge : HashSet
     }
 
-    // Method to add new employee to the staff ArrayList
+    // Method to add new employee to the staff ArrayList and staffSet 
     public void addNewStaff(Employee employee) {
-        staff.add(employee);
+        if (staffSet.add(employee.getEmpNum())){
+            // empNum was added to HashSet, add employee to the staff ArrayList
+            staff.add(employee);
+            System.out.println("Employee added successfully.");
+        }else{
+            System.out.println("Employee with empNum " + employee.getEmpNum() + " already exists.");
+        }
+        
     }
 
     // Method to get the number of employees in the staff ArrayList
@@ -63,6 +75,7 @@ public class Company {
             
             if (employee.getEmpNum() == empNumToRemove){
                 iterator.remove();
+                staffSet.remove(empNumToRemove); // Remove from HashSet
                 System.out.println("Employee has been removed successfully.");
                 return;
             }

@@ -43,9 +43,9 @@ public class CA2Programming {
         System.out.println("******************************");
         System.out.println("Manager Login");
         System.out.println("******************************");
-        System.out.println("Username ");
+        System.out.println("Username: ");
         String usernameInput = sc.nextLine();
-        System.out.println("Password ");
+        System.out.println("Password: ");
         String passwordInput = sc.nextLine();
 
         // Validate login credentails 
